@@ -307,9 +307,3 @@ The dataset is provided by the **UCI Machine Learning Repository** under the **C
 For complete information regarding the dataset, licensing, and attribution, please refer to the original dataset source.
 
 ---
-
-## 👩‍💻 Author
-
-**Azzahra Anggarista**
-
-This project was created as part of a data processing and analysis project using **Apache PySpark**.
