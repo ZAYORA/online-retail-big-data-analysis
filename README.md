@@ -1,138 +1,172 @@
-# 📊 Online Retail Big Data Analysis with PySpark
+# Online Retail Data Analysis with PySpark
 
-This project focuses on processing and analyzing the Online Retail dataset using PySpark.
+Analisis dataset **Online Retail** menggunakan **Apache PySpark** untuk memahami data transaksi penjualan dan menerapkan beberapa operasi dasar pemrosesan data skala besar.
 
-This project was developed as part of a Big Data practical assignment to practice data processing, transformation, and analysis using Apache Spark and PySpark.
+## 📌 Project Overview
 
-## 🎯 Objectives
+Project ini menggunakan dataset **Online Retail** dari [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail).
 
-The main objectives of this project are:
+Dataset berisi transaksi dari sebuah perusahaan retail online berbasis di Inggris yang menjual berbagai produk hadiah. Data mencakup transaksi pada periode **1 Desember 2010 hingga 9 Desember 2011** dan terdiri dari **541.909 transaksi**.
 
-- To learn how to process data using PySpark.
-- To work with Spark DataFrames.
-- To perform data filtering and transformation.
-- To perform grouping and aggregation.
-- To apply sorting and repartitioning.
-- To perform descriptive statistical analysis.
-- To practice basic data cleaning using PySpark.
-- To export processed data into CSV format.
+Pada project ini, dataset diproses menggunakan **PySpark** untuk melakukan eksplorasi dan operasi data seperti filtering, agregasi, sorting, repartitioning, dan pembersihan data.
 
-## 📊 Dataset
+## 🗂️ Dataset
 
-This project uses the **Online Retail dataset** from the UCI Machine Learning Repository.
+Dataset yang digunakan:
 
-The dataset contains transaction records from a UK-based online retail business and includes information related to customer purchases and transactions.
+**Online Retail Dataset — UCI Machine Learning Repository**
 
-The dataset is used as the main source for practicing Big Data processing and analysis using PySpark.
+* Dataset ID: 352
+* Jumlah transaksi: 541.909
+* Periode: 2010-12-01 – 2011-12-09
+* Format: Excel (`.xlsx`)
+* Ukuran file: ±22,6 MB
+* Negara utama: United Kingdom
 
-> The raw dataset is not included in this repository.
+### Dataset Columns
 
-## 🛠️ Tools & Technologies
+| Column        | Description                   |
+| ------------- | ----------------------------- |
+| `InvoiceNo`   | Nomor transaksi               |
+| `StockCode`   | Kode produk                   |
+| `Description` | Nama/deskripsi produk         |
+| `Quantity`    | Jumlah produk dalam transaksi |
+| `InvoiceDate` | Tanggal dan waktu transaksi   |
+| `UnitPrice`   | Harga produk per unit         |
+| `CustomerID`  | ID pelanggan                  |
+| `Country`     | Negara pelanggan              |
 
-- Python
-- PySpark
-- Apache Spark
-- Pandas
-- Jupyter Notebook
-- Google Colab
+Dataset dapat diunduh melalui:
 
-## 🔍 Analysis Process
+https://archive.ics.uci.edu/dataset/352/online+retail
 
-The analysis is performed using PySpark through several data processing stages:
+> Dataset disediakan oleh UCI Machine Learning Repository dan dilisensikan di bawah **CC BY 4.0**.
 
-### 1. Spark Session
+## 🛠️ Technologies
 
-A Spark Session is created as the entry point for working with Apache Spark.
+Project ini menggunakan:
 
-### 2. Data Loading
-
-The Online Retail dataset is loaded and prepared for processing.
-
-### 3. Data Exploration
-
-The dataset is explored to understand its structure, attributes, and contents.
-
-### 4. PySpark DataFrame
-
-The dataset is converted and processed using a PySpark DataFrame.
-
-### 5. Data Filtering
-
-Filtering operations are performed to select data based on specific conditions.
-
-### 6. Grouping and Aggregation
-
-The `groupBy()` operation is used together with aggregation functions to summarize the data.
-
-### 7. Sorting
-
-The data is sorted based on selected attributes to support further analysis.
-
-### 8. Repartitioning
-
-Repartitioning is performed to practice data partition management in Spark.
-
-### 9. Descriptive Statistics
-
-Descriptive statistical analysis is performed to obtain an overview of the numerical data.
-
-### 10. Data Cleaning
-
-Basic data cleaning operations are performed to prepare the data for analysis.
-
-### 11. Data Export
-
-Processed data is exported into CSV format.
+* Python
+* Apache PySpark
+* Pandas
+* Jupyter Notebook / Google Colab
 
 ## 📁 Project Structure
 
 ```text
-online-retail-big-data-analysis/
+online-retail-pyspark/
+│
+├── notebook/
+│   └── analisis_online_retail.ipynb
+│
+├── data/
+│   └── README.md
 │
 ├── README.md
 ├── requirements.txt
-│
-└── notebook/
-    └── analisis_online_retail.ipynb
+└── .gitignore
+```
 
+## ⚙️ Installation
 
-##📓 Notebook
+Clone repository:
 
-The complete implementation and analysis are available in the Jupyter Notebook:
+```bash
+git clone https://github.com/USERNAME/online-retail-pyspark.git
+cd online-retail-pyspark
+```
 
-notebook/analisis_online_retail.ipynb
+Install dependencies:
 
-The notebook contains the complete workflow for processing and analyzing the Online Retail dataset using PySpark.
-
-##📚 Learning Outcomes
-
-Through this project, I practiced:
-
-Creating and using a Spark Session.
-Working with PySpark DataFrames.
-Performing data filtering and transformation.
-Using grouping and aggregation operations.
-Sorting data using PySpark.
-Understanding data repartitioning.
-Performing descriptive statistical analysis.
-Performing basic data cleaning.
-Exporting processed data into CSV format.
-🚀 How to Run
-1. Clone the repository
-git clone https://github.com/USERNAME/online-retail-big-data-analysis.git
-cd online-retail-big-data-analysis
-2. Install the required libraries
+```bash
 pip install -r requirements.txt
-3. Open the notebook
+```
 
-Open:
+## 📥 Dataset Setup
 
+Download `Online Retail.xlsx` dari UCI Machine Learning Repository:
+
+https://archive.ics.uci.edu/dataset/352/online+retail
+
+Kemudian letakkan file dataset di folder:
+
+```text
+data/Online Retail.xlsx
+```
+
+Notebook menggunakan file Excel tersebut sebagai sumber data.
+
+## 🔎 Analysis Performed
+
+Beberapa proses yang dilakukan dalam notebook:
+
+1. Membuat Spark Session.
+2. Membaca dataset menggunakan Pandas.
+3. Mengubah Pandas DataFrame menjadi PySpark DataFrame.
+4. Melihat struktur/schema dataset.
+5. Menghitung jumlah data.
+6. Menambahkan kolom `TotalPrice`.
+
+```text
+TotalPrice = Quantity × UnitPrice
+```
+
+7. Melakukan filtering berdasarkan `Quantity`.
+8. Memfilter transaksi berdasarkan negara, termasuk France.
+9. Melakukan agregasi penjualan berdasarkan `Country`.
+10. Menghitung total quantity berdasarkan produk.
+11. Mengurutkan transaksi berdasarkan `TotalPrice`.
+12. Mengurutkan transaksi berdasarkan `Quantity`.
+13. Mengecek jumlah partition Spark.
+14. Melakukan repartition menjadi 4 partition.
+15. Menampilkan statistik deskriptif.
+16. Menghitung jumlah transaksi berdasarkan negara.
+17. Menampilkan produk unik.
+18. Menghapus data null menggunakan `dropna()`.
+19. Menyimpan hasil data yang telah dibersihkan ke CSV.
+
+## 📊 Key Findings
+
+Berdasarkan proses analisis pada notebook:
+
+* **United Kingdom** memiliki jumlah transaksi paling tinggi dibandingkan negara lainnya.
+* Terdapat beberapa transaksi dengan nilai `Quantity` yang sangat besar.
+* Terdapat transaksi dengan nilai `TotalPrice` yang sangat tinggi.
+* Dataset memiliki nilai negatif pada `Quantity` dan `TotalPrice`, yang perlu diperhatikan ketika melakukan analisis lebih lanjut.
+* Setelah proses pembersihan menggunakan `dropna()`, data disimpan sebagai output CSV.
+
+## 🚀 Running the Notebook
+
+Notebook dapat dijalankan menggunakan:
+
+* Google Colab
+* Jupyter Notebook
+* JupyterLab
+
+Jika menggunakan Google Colab, upload dataset `Online Retail.xlsx` terlebih dahulu atau sesuaikan path dataset pada bagian pembacaan data.
+
+Kemudian buka:
+
+```text
 notebook/analisis_online_retail.ipynb
+```
 
-The notebook can be run using Jupyter Notebook, JupyterLab, or Google Colab.
+dan jalankan cell secara berurutan.
 
-##📌 Project Context
+## 📚 References
 
-This project was developed as part of a Big Data practical assignment.
+Chen, D. (2015). *Online Retail*. UCI Machine Learning Repository.
 
-The project focuses on applying fundamental PySpark operations to a real-world retail transaction dataset and gaining practical experience with distributed data processing using Apache Spark.
+Dataset:
+
+https://archive.ics.uci.edu/dataset/352/online+retail
+
+DOI:
+
+https://doi.org/10.24432/C5BW33
+
+## 📄 License
+
+Dataset menggunakan lisensi **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
+
+Copyright and licensing of the dataset belong to the original data provider.
