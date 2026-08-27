@@ -94,7 +94,7 @@ online-retail-big-data-analysis/
 │
 └── notebook/
     └── analisis_online_retail.ipynb
-📓 Notebook
+##📓 Notebook
 
 The complete implementation and analysis are available in the Jupyter Notebook:
 
@@ -102,7 +102,7 @@ notebook/analisis_online_retail.ipynb
 
 The notebook contains the complete workflow for processing and analyzing the Online Retail dataset using PySpark.
 
-📚 Learning Outcomes
+##📚 Learning Outcomes
 
 Through this project, I practiced:
 
@@ -129,7 +129,7 @@ notebook/analisis_online_retail.ipynb
 
 The notebook can be run using Jupyter Notebook, JupyterLab, or Google Colab.
 
-📌 Project Context
+##📌 Project Context
 
 This project was developed as part of a Big Data practical assignment.
 
